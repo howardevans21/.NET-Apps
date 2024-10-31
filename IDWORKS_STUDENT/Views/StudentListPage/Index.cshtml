@@ -1,0 +1,198 @@
+﻿<!-- Bootstrap -->
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.core.css")"
+      rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.datepicker.css")"
+      rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")"
+      rel="stylesheet" type="text/css" />
+
+@model IDWORKS_STUDENT.Pagination.PaginatedList<IDWORKS_STUDENT.Models.Colina_Student_Card_Accident>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@using IDWORKS_STUDENT.AppConfig;
+@inject SignInManager<IdentityUser> signInManager;
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<style>
+    .table tbody tr:hover td, .table tbody tr:hover th {
+        background-color: #ffff00;
+    }
+</style>
+
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+
+
+@if (UserSignAuth.userAlreadySignedIn)
+{
+    @if (UserSignAuth.RoleSuperAdmin || UserSignAuth.RoleAdmin || UserSignAuth.RoleModerator || UserSignAuth.RoleBasic)
+    {
+        <h1>Student Card Records</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-success">Create New</a>
+            &nbsp;&nbsp;&nbsp;
+            <a asp-action="Index" class="btn btn-outline-dark">Clear Filters</a>
+        </p>
+        <form asp-controller="StudentListPage" asp-action="Index" method="get">
+            <button class="btn btn-outline-primary" type="button" data-toggle="collapse" id="filterToggle" data-target="#collapseFilter">
+                Filter/Search
+            </button>
+            <br />
+            <div class="collapse" id="collapseFilter">
+
+                <div class="container">
+                    <div class="row row-cols-2">
+                        <div class="col">
+                            <p>
+                                <label><strong>Search Policy</strong></label>
+                                <input type="text" class="form-control" name="searchPolicy" placeholder="Enter Policy" aria-label="Policy"
+                                       value="@ViewData["CurrentFilter"]" />
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label><strong>Search Effective Date</strong></label>
+                                <input class="form-control" data-val="true" data-val-required="Date is required"
+                                       id="searchDate" name="searchDate" type="date" />
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label><strong>Search School</strong></label>
+                                <input type="text" class="form-control" name="searchSchool" placeholder="Enter School" aria-label="School" />
+                            </p>
+                        </div>
+                        <div class="col">
+
+                            <p>
+                                <label><strong>Search First Name</strong></label>
+                                <input type="text" class="form-control" name="searchFirstName" placeholder="Enter First Name" aria-label="First Name" />
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <label><strong>Search Last Name</strong></label>
+                                <input type="text" class="form-control" name="searchLastName" placeholder="Enter Last Name" aria-label="Last Name" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4 align-self-end">
+                    <input type="submit" class="btn btn-primary" value="Filter" />
+                    <a asp-action="Index" class="btn btn-outline-dark">Clear Filters</a>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        IDWFirstName
+                    </th>
+                    <th scope="col">
+                        IDWLastName
+                    </th>
+                    <th scope="col">
+                        IDWSchool
+                    </th>
+                    <th scope="col">
+                        IDWPolicyNumber
+                    </th>
+                    <th scope="col">
+                        IDWEffectiveDate
+                    </th>
+
+                    <th scope="col">
+                        IDWCoverageProvider
+                    </th>
+                    <th scope="col">
+                        IDWCoverage
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWSchool)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWPolicyNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWEffectiveDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWCoverageProvider)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDWCoverage)
+                    </td>
+
+                    @if (UserSignAuth.RoleModerator || UserSignAuth.RoleAdmin || UserSignAuth.RoleSuperAdmin)
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    }
+                    else if(UserSignAuth.RoleBasic)
+                    {
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            </td>
+                    }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a asp-action="Index"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @prevDisabled">
+            Previous
+        </a>
+        <a asp-action="Index"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @nextDisabled">
+            Next
+        </a>
+    }
+    else
+    {
+        <h4 class="text-danger">Access Denied. You are not authorized to use the Student List page.</h4>
+    }
+}
+else
+{
+    <h4 class="text-info">Please enable to display screen</h4>
+    <a class="nav-link text-primary" id="login" asp-area="" asp-controller="AutoLogin" asp-action="Index">Enable</a>
+}

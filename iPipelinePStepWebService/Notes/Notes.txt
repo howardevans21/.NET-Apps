@@ -1,0 +1,60 @@
+﻿/*****************************************************************
+ Migration .NET CLI Commands
+************************************************************/
+dotnet ef migrations add Initial -o Migrations -c EFContext
+dotnet ef database update -c EFContext
+
+/*****************************************************************
+ Path Finder URI Web Service to call PStep to Ingenium
+************************************************************/
+/PathFinderJsonServiceWarXX/json/pathfinder/callPStep 
+
+Where XX represents the region (UT, ST,AT, PR)
+
+
+Package Console Command 
+--------------------
+dotnet ef migrations remove
+dotnet tool install --global dotnet-ef
+dotnet ef  migrations add EFContext
+dotnet ef database update --context EFContext
+
+
+Test API in POSTMAN uiing APIKEY
+--------------------------------
+
+INGENIUM functions utilizing the PathFinderJsonSwrviceWar can now be tested using Postman/SoupUi with the URL https://cdr-ut.colina.com/PathFinderJsonServiceTest/api/PathFinderJsonServiceTest.
+ 
+The tools will require:
+1.      MIR input in JSON format in the message body
+2.      Header named APIKeys, value “2f7f7cbf-ee23-495d-9c91-79c5d5ad037e”
+ 
+ 
+The attached file contains screenshots of recent test results.
+ 
+
+
+
+/**************************************************************************/
+Test Proxy Web Service in Pathfinder 
+*************************************************************/
+The proxy web service can be tested in PostMan
+
+URL
+-------------------------------------------
+https://cdr-ut.colina.com/PathFinderJsonServiceTest/api/PathFinderJsonServiceTest?2f7f7cbf-ee23-495d-9c91-79c5d5ad037e
+
+ApiKey Header Name
+---------------------
+ApiKeys 
+
+ApiKeys is the header name that needs to be provided with value “2f7f7cbf-ee23-495d-9c91-79c5d5ad037e” to make the web service call
+ApiKeys is added to the header. 
+
+JSON Body
+---------------------
+The JSON Body needs to  be placed in the raw input 
+
+A response should be returned after entering the URL, APIKey value, and JSON and making a POST Request
+
+

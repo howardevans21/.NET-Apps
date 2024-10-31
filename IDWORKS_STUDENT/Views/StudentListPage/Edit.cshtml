@@ -1,0 +1,86 @@
+﻿@model IDWORKS_STUDENT.Models.Colina_Student_Card_Accident
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using IDWORKS_STUDENT.AppConfig;
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_Layout";
+}
+
+@if (UserSignAuth.userAlreadySignedIn)
+{
+    @if (UserSignAuth.RoleSuperAdmin || UserSignAuth.RoleAdmin || UserSignAuth.RoleModerator)
+    {
+        <h1>Edit Student Card Record Page</h1>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="IDWFirstName" class="control-label"></label>
+                        <input asp-for="IDWFirstName" class="form-control" />
+                        <span asp-validation-for="IDWFirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWLastName" class="control-label"></label>
+                        <input asp-for="IDWLastName" class="form-control" />
+                        <span asp-validation-for="IDWLastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWSchool" class="control-label"></label>
+                        <input asp-for="IDWSchool" class="form-control" />
+                        <span asp-validation-for="IDWSchool" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWPolicyNumber" class="control-label"></label>
+                        <input asp-for="IDWPolicyNumber" class="form-control" />
+                        <span asp-validation-for="IDWPolicyNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWEffectiveDate" class="control-label"></label>
+                        <input asp-for="IDWEffectiveDate" class="form-control" />
+                        <span asp-validation-for="IDWEffectiveDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWEffectiveDateText" class="control-label"></label>
+                        <input asp-for="IDWEffectiveDateText" class="form-control" />
+                        <span asp-validation-for="IDWEffectiveDateText" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWCoverageProvider" class="control-label"></label>
+                        <input asp-for="IDWCoverageProvider" class="form-control" />
+                        <span asp-validation-for="IDWCoverageProvider" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IDWCoverage" class="control-label"></label>
+                        <input asp-for="IDWCoverage" class="form-control" />
+                        <span asp-validation-for="IDWCoverage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+    }
+    else
+    {
+        <h4 class="text-danger">Access Denied. You are not authorized to use view page.</h4>
+    }
+}
+else
+{
+    <h4 class="text-info">It seems you navigated to this screen by not following appropriate workflow. Please open the site's main page'</h4>
+}
+

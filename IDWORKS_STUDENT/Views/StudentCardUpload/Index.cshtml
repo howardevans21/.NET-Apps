@@ -1,0 +1,136 @@
+﻿@page
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager;
+@inject UserManager<IdentityUser> UserManager
+@using IDWORKS_STUDENT.AppConfig;
+@using IDWORKS_STUDENT;
+@using IDWORKS_STUDENT.Models;
+@model PostFile
+@{
+   
+    Layout = "_Layout";
+}
+
+
+@if (UserSignAuth.userAlreadySignedIn)
+{
+    @if (UserSignAuth.RoleSuperAdmin || UserSignAuth.RoleAdmin || UserSignAuth.RoleModerator || UserSignAuth.RoleBasic)
+    {
+        <div class="text-center">
+
+            @if (@IDWORKS_STUDENT.AppConfig.IDWorksAppConfig.Environment.ToLower() == "test")
+            {
+                <h4 class="text-primary">IDWORKS Student Medical Card Upload - Test</h4>
+
+            }
+            else
+            {
+                <h4 class="text-danger">IDWORKS Student Medical Card Upload - Production</h4>
+            }
+
+            <!-- Input File -->
+            <div class="container">
+                <div class="mb-3 mt-3">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+
+                            <input type="file" name="file" class="form-control" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary" asp-page-handler="Submit">Upload</button>
+                            <a asp-action="Index" class="btn btn-outline-dark">Upload 2</a>
+                        </div>
+                    </form>
+
+                    <!-- Error Messages -->
+                    <div class="text-danger">
+                        @Html.ValidationMessage("incorrectExcelColumnFormat")
+                    </div>
+                    <div class="text-danger">
+                        @Html.ValidationMessage("invalidFileType")
+                    </div>
+                    <div class="text-info">
+                        @Html.ValidationMessage("alreadyAdded")
+                    </div>
+                </div>
+
+                <!-- Show Errors for blank entries from the file uploaded -->
+                @if (Model != null && Model.CellErrors != null && Model.CellErrors.Count > 0)
+                {
+                    <h4>Errors</h4>
+                    <p class="font-weight-normal">
+                        The file that was uploaded has some blank entries or an incorrect date format.
+                        <br />
+                        Please correct the issues in the file you've uploaded and upload again.
+                    </p>
+                    <table class="table table-danger table-striped">
+                        <tr>
+                            <th>Coverage</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Policy Number</th>
+                            <th scope="col">Effective Date</th>
+                            <th scope="col">Coverage Provider</th>
+                            <th scope="col">School</th>
+                        </tr>
+                        @foreach (ExcelDataInfo.ErrorInfoCell errorCell in Model.CellErrors)
+                        {
+                            <tr>
+                                <td>@errorCell.Coverage</td>
+                                <td>@errorCell.FirstName</td>
+                                <td>@errorCell.LastName</td>
+                                <td>@errorCell.PolicyNumber</td>
+                                <td>@errorCell.EffectiveDate.ToShortDateString()</td>
+                                <td>@errorCell.CoverageProvider</td>
+                                <td>@errorCell.School</td>
+                            </tr>
+
+                        }
+                    </table>
+                }
+                <hr />
+                <!-- Show Records only if Added from submission -->
+                @if (Model.AddedStudentModels.Count > 0)
+                {
+                    <h4>Records Added</h4>
+                    <table class="table table-striped" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th>Coverage</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Policy Number</th>
+                            <th scope="col">Effective Date</th>
+                            <th scope="col">Coverage Provider</th>
+                            <th scope="col">School</th>
+                        </tr>
+                        @foreach (Colina_Student_Card_Accident student in Model.AddedStudentModels)
+                        {
+                            <tr>
+                                <td>@student.IDWCoverage</td>
+                                <td>@student.IDWFirstName</td>
+                                <td>@student.IDWLastName</td>
+                                <td>@student.IDWPolicyNumber</td>
+                                <td>@student.IDWEffectiveDate</td>
+                                <td>@student.IDWCoverageProvider</td>
+                                <td>@student.IDWSchool</td>
+                            </tr>
+
+                        }
+                    </table>
+                }
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <h4 class="text-danger">Access Denied. You are not authorized to use the Medical Card File Upload Process.</h4>
+    }
+}
+else
+{
+    <h4 class="text-info">Please enable to display screen</h4>
+    <a class="nav-link text-primary" id="login" asp-area="" asp-controller="AutoLogin" asp-action="Index">Enable</a>
+}

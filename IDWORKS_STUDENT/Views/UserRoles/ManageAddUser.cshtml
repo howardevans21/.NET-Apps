@@ -1,0 +1,37 @@
+﻿@page
+
+@{
+    Layout = "_Layout";
+
+}
+
+<h1>Add User</h1>
+<!-- Error Messages -->
+<h5 class="text-danger">@Html.ValidationMessage("invalidUser")</h5>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h4>Add new account to the Student Card Web App Register</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label><strong>Enter Colina Windows AD Account Name:</strong></label>
+                <input type="text" class="form-control" name="userNameEntered" placeholder="Enter User" aria-label="User" />
+
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Register Account</button>
+
+                <input type="submit" value="Cancel" asp-action="Cancel" class="btn btn-danger" style="width:auto" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

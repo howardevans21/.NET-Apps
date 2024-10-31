@@ -1,0 +1,89 @@
+﻿{
+  "Settings": {
+    "XMLPath": "TempWorkSpace",
+    "HTTP_WEB_URI": "https://pathfindertest19.colina.com:9443",
+    "HTTP_RESOURCE": "/PathFinderJsonServiceWar/json/pathfinder/callPStep",
+    "StagingPath": "Staging",
+    "x-api-key": "pgH7QzFHJx4w46fI~5Uzi4RvtTwlEXp"
+  }
+}
+
+Restart IIS
+------------------
+> net stop WAS
+> net start W3SVC
+
+\\cil-cdr-app00\c$\inetpub\wwwroot_cdr-ut\IPipelineApi
+
+Create Migration on Entity
+----------------------
+
+Package Console Command 
+--------------------
+dotnet ef migrations remove
+dotnet tool install --global dotnet-ef
+dotnet ef  migrations add EFContext
+dotnet ef database update --context EFContext
+
+
+SQL Test 
+------------------------
+delete TPOL 
+delete TBENE
+delete TCDOC
+delete TCLI
+delete TCLIA 
+delete TCVG
+
+update TPOL 
+set POL_ID = '123456789'
+
+update TBENE
+set POL_ID = '123456789'
+
+update TCDOC
+set POL_ID = '123456789'
+
+update TCLI
+set POL_ID = '123456789'
+
+update TCLIA
+set POL_ID = '123456789' 
+
+update TCVG
+set POL_ID = '123456789'
+
+
+SQL TEST RESULT 
+------------------------
+
+select *
+from TBENE
+
+
+select *
+from TPOL 
+
+select *
+from TCDOC
+
+select *
+from TCLIA 
+
+select *
+from TCVG
+
+
+select *
+from TCLI 
+
+
+insert into TTTAB
+select *
+from CDR_UT.dbo.TTTAB
+
+update TCVG 
+set ClI_TYP_CD = 'P1' , CVG_PLAN_ID = 'BST20C'
+
+
+55

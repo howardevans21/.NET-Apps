@@ -1,0 +1,86 @@
+﻿@model IDWORKS_STUDENT.Models.Colina_Student_Card_Accident
+@using IDWORKS_STUDENT.AppConfig;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_Layout";
+}
+
+@if (UserSignAuth.userAlreadySignedIn)
+{
+    @if (UserSignAuth.RoleSuperAdmin || UserSignAuth.RoleAdmin || UserSignAuth.RoleModerator)
+    {
+        <h1>Delete</h1>
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>Colina_Student_Card_Accident</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWFirstName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWFirstName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWLastName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWLastName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWSchool)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWSchool)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWPolicyNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWPolicyNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWEffectiveDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWEffectiveDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWEffectiveDateText)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWEffectiveDateText)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWCoverageProvider)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWCoverageProvider)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IDWCoverage)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IDWCoverage)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-action="Index">Back to List</a>
+            </form>
+        </div>
+    }
+    else
+    {
+        <h4 class="text-danger">Access Denied. You are not authorized to view this page.</h4>
+    }
+}
+else
+{
+    <h4 class="text-info">It seems you navigated to this screen by not following appropriate workflow. Please open the site's main page'</h4>
+}
+

@@ -1,0 +1,28 @@
+﻿@model List<IDWORKS_STUDENT.Models.ManageUserRolesViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Manage";
+    Layout = "_Layout";
+}
+
+
+<form method="post">
+<div class="card">
+    <div class="card-header">
+        <h2>Manage User</h2>
+          Remove User/ @ViewBag.UserName
+    </div>
+    @if (Model != null)
+    {
+        <div class="card-body">
+            <h1>@ViewBag.UserName</h1>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="Delete" class="btn btn-primary"
+                   style="width:auto" />
+            <input type="submit" value="Cancel" asp-action="Cancel" class="btn btn-danger" style="width:auto" />
+        </div>
+    }
+</div>
+</form>

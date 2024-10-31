@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\cdr_1.uts workspace\\ipipelinewindowsservice\\ipipelinepstepwebservice\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|solutionrelative:worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\cdr_1.uts workspace\\ipipelinewindowsservice\\ipipelinepstepwebservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\cdr_1.uts workspace\\ipipelinewindowsservice\\ipipelinepstepwebservice\\ipipelinepstepwebservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|solutionrelative:ipipelinepstepwebservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\cdr_1.uts workspace\\ipipelinewindowsservice\\ipipelinepstepwebservice\\api\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|solutionrelative:api\\api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\cdr_1.uts workspace\\ipipelinewindowsservice\\ipipelinepstepwebservice\\api\\enum\\apienum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|solutionrelative:api\\enum\\apienum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\cdr_1.uts workspace\\ipipelinewindowsservice\\ipipelinepstepwebservice\\pathfinderobjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC668309-A54B-4C32-9498-EF00F8B8704E}|iPipelinePStepWebService.csproj|solutionrelative:pathfinderobjectmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T19:42:39.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "iPipelinePStepWebService.csproj",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\iPipelinePStepWebService.csproj",
+              "RelativeDocumentMoniker": "iPipelinePStepWebService.csproj",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\iPipelinePStepWebService.csproj",
+              "RelativeToolTip": "iPipelinePStepWebService.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-22T19:42:37.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "API.cs",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\API\\API.cs",
+              "RelativeDocumentMoniker": "API\\API.cs",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\API\\API.cs",
+              "RelativeToolTip": "API\\API.cs",
+              "ViewState": "AgIAAOABAAAAAAAAAAAjwOMBAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T19:11:36.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "APIENUM.cs",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\API\\ENUM\\APIENUM.cs",
+              "RelativeDocumentMoniker": "API\\ENUM\\APIENUM.cs",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\API\\ENUM\\APIENUM.cs",
+              "RelativeToolTip": "API\\ENUM\\APIENUM.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAjwDgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T19:10:05.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PathFinderObjectModel.cs",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\PathFinderObjectModel.cs",
+              "RelativeDocumentMoniker": "PathFinderObjectModel.cs",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\PathFinderObjectModel.cs",
+              "RelativeToolTip": "PathFinderObjectModel.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAjwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T19:46:47.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\Worker.cs",
+              "RelativeDocumentMoniker": "Worker.cs",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\CDR_1.UTS Workspace\\iPipelineWindowsService\\iPipelinePStepWebService\\Worker.cs",
+              "RelativeToolTip": "Worker.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAjwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T20:34:44.465Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

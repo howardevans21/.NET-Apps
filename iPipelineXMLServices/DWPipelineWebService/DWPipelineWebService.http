@@ -1,0 +1,6 @@
+@DWPipelineWebService_HostAddress = http://localhost:5137
+
+GET {{DWPipelineWebService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

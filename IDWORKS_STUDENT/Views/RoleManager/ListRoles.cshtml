@@ -1,0 +1,74 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@using IDWORKS_STUDENT.AppConfig;
+@{
+    ViewData["Title"] = "Role Manager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (UserSignAuth.userAlreadySignedIn)
+{
+    @if (UserSignAuth.RoleSuperAdmin || UserSignAuth.RoleAdmin || UserSignAuth.RoleModerator)
+    {
+        <h1>Role Manager</h1>
+
+        <!-- Error Messages -->
+        <h5 class="text-danger">@Html.ValidationMessage("deleteRoleError")</h5>
+        <h5 class="text-danger">@Html.ValidationMessage("cannotRemoveRole")</h5>
+        <h5 class="text-danger">@Html.ValidationMessage("invalidRole")</h5>
+
+        <form method="post" asp-action="AddRole" asp-controller="RoleManager">
+            <div class="input-group">
+                <input name="roleName" class="form-control w-25">
+                <span class="input-group-btn">
+                    <button class="btn btn-success">Add New Role</button>
+                </span>
+            </div>
+        </form>
+        <br />
+        <br />
+        <form method="post" asp-action="RefreshRoles" asp-controller="RoleManager">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary">Refresh</button>
+                </span>
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model)
+                {
+                    <tr>
+                        
+                        <td>@role.Name</td>
+                        <td>
+                            <form method="post" asp-action="DeleteRole" asp-controller="RoleManager" asp-route-id="@role.Id">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4 class="text-danger">Access Denied. You are not authorized to use the Student List page.</h4>
+    }
+}
+else
+{
+    <h4 class="text-info">Please enable to display screen</h4>
+    <a class="nav-link text-primary" id="login" asp-area="" asp-controller="AutoLogin" asp-action="Index">Enable</a>
+}

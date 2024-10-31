@@ -1,0 +1,69 @@
+﻿@model IDWORKS_STUDENT.Models.Colina_Student_Card_Accident
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+}
+
+<h1>Create</h1>
+
+<h4>Colina_Student_Card_Accident</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IDWFirstName" class="control-label"></label>
+                <input asp-for="IDWFirstName" class="form-control" />
+                <span asp-validation-for="IDWFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWLastName" class="control-label"></label>
+                <input asp-for="IDWLastName" class="form-control" />
+                <span asp-validation-for="IDWLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWSchool" class="control-label"></label>
+                <input asp-for="IDWSchool" class="form-control" />
+                <span asp-validation-for="IDWSchool" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWPolicyNumber" class="control-label"></label>
+                <input asp-for="IDWPolicyNumber" class="form-control" />
+                <span asp-validation-for="IDWPolicyNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWEffectiveDate" class="control-label"></label>
+                <input asp-for="IDWEffectiveDate" class="form-control" />
+                <span asp-validation-for="IDWEffectiveDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWEffectiveDateText" class="control-label"></label>
+                <input asp-for="IDWEffectiveDateText" class="form-control" />
+                <span asp-validation-for="IDWEffectiveDateText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWCoverageProvider" class="control-label"></label>
+                <input asp-for="IDWCoverageProvider" class="form-control" />
+                <span asp-validation-for="IDWCoverageProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDWCoverage" class="control-label"></label>
+                <input asp-for="IDWCoverage" class="form-control" />
+                <span asp-validation-for="IDWCoverage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

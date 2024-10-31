@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\PCM.1.UTS Workspace\\EmailDownload\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4561B643-8E26-4E95-91CB-3BAE6E67E5C0}|EmailDownload.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\pcm.1.uts workspace\\emaildownload\\reademails\\reademails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4561B643-8E26-4E95-91CB-3BAE6E67E5C0}|EmailDownload.csproj|solutionrelative:reademails\\reademails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4561B643-8E26-4E95-91CB-3BAE6E67E5C0}|EmailDownload.csproj|c:\\users\\howard.evans\\ibm\\rationalsdp\\workspace\\pcm.1.uts workspace\\emaildownload\\config\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4561B643-8E26-4E95-91CB-3BAE6E67E5C0}|EmailDownload.csproj|solutionrelative:config\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReadEmails.cs",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\PCM.1.UTS Workspace\\EmailDownload\\ReadEmails\\ReadEmails.cs",
+              "RelativeDocumentMoniker": "ReadEmails\\ReadEmails.cs",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\PCM.1.UTS Workspace\\EmailDownload\\ReadEmails\\ReadEmails.cs",
+              "RelativeToolTip": "ReadEmails\\ReadEmails.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEQAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T15:10:06.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appSettings.json",
+              "DocumentMoniker": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\PCM.1.UTS Workspace\\EmailDownload\\Config\\appSettings.json",
+              "RelativeDocumentMoniker": "Config\\appSettings.json",
+              "ToolTip": "C:\\Users\\Howard.Evans\\IBM\\rationalsdp\\workspace\\PCM.1.UTS Workspace\\EmailDownload\\Config\\appSettings.json",
+              "RelativeToolTip": "Config\\appSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-16T15:08:22.995Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

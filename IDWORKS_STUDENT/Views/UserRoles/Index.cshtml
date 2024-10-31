@@ -1,0 +1,115 @@
+﻿@using IDWORKS_STUDENT.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using IDWORKS_STUDENT.AppConfig;
+@model List<IDWORKS_STUDENT.Models.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<!-- Bootstrap -->
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.core.css")"
+      rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.datepicker.css")"
+      rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" rel="stylesheet" type="text/css" />
+
+@if (UserSignAuth.userAlreadySignedIn)
+{
+    @if (UserSignAuth.RoleSuperAdmin || UserSignAuth.RoleAdmin || UserSignAuth.RoleModerator)
+    {
+        <h1>User Roles</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a class="btn btn-primary" asp-area="" asp-controller="UserRoles" asp-action="ManageAddUser">Add User</a>
+                    </td>
+                    <td><a class="btn btn-outline-dark" asp-action="Index">Clear Filters</a></td>
+                    <td>
+                        <form asp-controller="UserRoles" asp-action="Index" method="get">
+                            <button class="btn btn-outline-primary" type="button" data-toggle="collapse" id="filterToggle" data-target="#collapseFilter">
+                                Filter/Search
+                            </button>
+                            <br /><br />
+                            <div class="collapse" id="collapseFilter">
+                                <div class="container">
+                                    <div class="row row-cols-2">
+                                        <div class="col">
+                                            <p>
+                                                <label><strong>Search User</strong></label>
+                                                <input type="text" class="form-control" name="searchUser" placeholder="Enter User" aria-label="User"
+                                                       value="@ViewData["CurrentFilter"]" />
+                                            </p>
+                                        </div>
+
+                                        <div class="col">
+                                            <p>
+                                                <label><strong>Search Email</strong></label>
+                                                <input type="text" class="form-control" name="searchEmail" placeholder="Enter Email" aria-label="Email" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4 align-self-end">
+                                    <input type="submit" class="btn btn-primary" value="Filter" />
+                                    <a asp-action="Index" class="btn btn-outline-dark">Clear Filters</a>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <br />
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Roles</th>
+                    <th>Role Management</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    if (@user.Email.ToLower() != IDWORKS_STUDENT.AppConfig.IDWorksAppConfig.DefaultSuperAdmin.ToLower())
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>@string.Join(" , ", user.Roles.ToList())</td>
+                            <td>
+                                <a class="btn btn-primary" asp-area="" asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" asp-area="" asp-controller="UserRoles" asp-action="DeleteUser" asp-route-userId="@user.UserId">Delete</a>
+                            </td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4 class="text-danger">Access Denied. You are not authorized to use view page.</h4>
+    }
+}
+else
+{
+    <h4 class="text-info">Please enable to display screen</h4>
+    <a class="nav-link text-primary" id="login" asp-area="" asp-controller="AutoLogin" asp-action="Index">Enable</a>
+}
+
